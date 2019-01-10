@@ -178,3 +178,10 @@ exit influxdb container
 root@7d6138d695d4:/# exit
 exit
 ```
+Stop and remove the containers
+```
+$ docker stop telegraf influxdb
+```
+```
+$ docker rm telegraf influxdb
+```
