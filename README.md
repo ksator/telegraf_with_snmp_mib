@@ -19,11 +19,11 @@ The MIB are in the directory `/usr/share/snmp/mibs`
 ```
 $ docker run -i -t ksator/telegraf_snmp ls /usr/share/snmp/mibs
 ```
-Run this command to test it (community public, snmp version 2c, ip 100.123.1.0, mib JUNIPER-MIB, object jnxBoxDescr.0)
+Run this command to test it (community `public`, snmp version `2c`, ip `100.123.1.0`, mib `JUNIPER-MIB`, object name `jnxBoxDescr.0`, oid `1.3.6.1.4.1.2636.3.1.2`)
 ```
 $ docker run -i -t ksator/telegraf_snmp snmpget -v 2c -c public 100.123.1.0 JUNIPER-MIB::jnxBoxDescr.0
-JUNIPER-MIB::jnxBoxDescr.0 = STRING: Juniper VMX Internet Backbone Router
 ```
+Here's an output example: `Juniper VMX Internet Backbone Router`
 
 ## How to use it
 
