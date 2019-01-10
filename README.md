@@ -82,7 +82,7 @@ $ cat telegraf.conf
    # Number of retries to attempt within timeout.
    retries = 3
 
-   # SNMP version, UAP only supports v1
+   # SNMP version
    version = 2
 
    # SNMP community string.
