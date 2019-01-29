@@ -1,3 +1,6 @@
+[![](https://images.microbadger.com/badges/version/ksator/junos-automation-apps-dockerized.svg)](https://microbadger.com/images/ksator/junos-automation-apps-dockerized "Get your own version badge on microbadger.com")
+[![](https://images.microbadger.com/badges/image/ksator/junos-automation-apps-dockerized.svg)](https://microbadger.com/images/ksator/junos-automation-apps-dockerized "Get your own image badge on microbadger.com")  
+
 ## What to find in this repo
 
 A docker file for telegraf that includes the following MIB: 
