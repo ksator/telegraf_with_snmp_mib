@@ -12,18 +12,18 @@ install docker
 
 Download the image
 ```
-$ docker pull ksator/telegraf_snmp
+$ docker pull ksator/telegraf_with_snmp_mib
 ```
 Verify
 ```
-$ docker images ksator/telegraf_snmp
+$ docker images ksator/telegraf_with_snmp_mib
 REPOSITORY             TAG                 IMAGE ID            CREATED             SIZE
 ksator/telegraf_snmp   latest              1e25f6aad4e5        23 minutes ago      315MB
 ```
 The MIB are in the directory `/usr/share/snmp/mibs`.  
 Run this command to verify: 
 ```
-$ docker run -i -t ksator/telegraf_snmp ls /usr/share/snmp/mibs
+$ docker run -i -t ksator/telegraf_with_snmp_mib ls /usr/share/snmp/mibs
 ```
 Run this command to test it: 
 - community `public`
@@ -32,14 +32,14 @@ Run this command to test it:
 - mib `JUNIPER-MIB`
 - object name `jnxBoxDescr.0`
 ```
-$ docker run -i -t ksator/telegraf_snmp snmpget -v 2c -c public 100.123.1.0 JUNIPER-MIB::jnxBoxDescr.0
+$ docker run -i -t ksator/telegraf_with_snmp_mib snmpget -v 2c -c public 100.123.1.0 JUNIPER-MIB::jnxBoxDescr.0
 ```
 Here's an output example:  
 `Juniper VMX Internet Backbone Router`
 
 This is the equivalent command of
 ```
-$ docker run -i -t ksator/telegraf_snmp snmpget -v 2c -c public 100.123.1.0 1.3.6.1.4.1.2636.3.1.2.0
+$ docker run -i -t ksator/telegraf_with_snmp_mib snmpget -v 2c -c public 100.123.1.0 1.3.6.1.4.1.2636.3.1.2.0
 ```
 
 ## How to use this repo
@@ -66,11 +66,11 @@ $ docker ps | grep influxdb
 
 pull ksator/telegraf_snmp docker image 
 ```
-$ docker pull ksator/telegraf_snmp
+$ docker pull ksator/telegraf_with_snmp_mib
 ```
 Verify
 ```
-$ docker images ksator/telegraf_snmp
+$ docker images ksator/telegraf_with_snmp_mib
 ```
 create a telegraf configuration file 
 
@@ -131,11 +131,11 @@ instanciate a telegraf container
 $ docker run -d --name telegraf \
 -v $PWD/telegraf.conf:/etc/telegraf/telegraf.conf \
 --network=test \
- ksator/telegraf_snmp 
+ ksator/telegraf_with_snmp_mib 
 ```
 verify
 ```
-$ docker ps | grep telegraf_snmp
+$ docker ps | grep telegraf_with_snmp_mib
 ```
 
 start a shell session in the influxdb container and query the influxdb database to verify
