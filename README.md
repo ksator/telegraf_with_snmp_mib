@@ -16,8 +16,9 @@ $ docker pull ksator/telegraf_with_snmp_mib
 Verify
 ```
 $ docker images ksator/telegraf_with_snmp_mib
-REPOSITORY             TAG                 IMAGE ID            CREATED             SIZE
-ksator/telegraf_snmp   latest              1e25f6aad4e5        23 minutes ago      315MB
+REPOSITORY                      TAG                 IMAGE ID            CREATED             SIZE
+ksator/telegraf_with_snmp_mib   latest              9e86cea117ad        7 minutes ago       315MB
+
 ```
 The MIB are in the directory `/usr/share/snmp/mibs`.  
 Run this command to verify: 
@@ -43,6 +44,11 @@ $ docker run -i -t ksator/telegraf_with_snmp_mib snmpget -v 2c -c public 100.123
 
 ## How to use this repo
 
+Create a docker network
+```
+$ docker network create test
+```
+
 ### Influxdb
 
 pull influxdb docker image 
@@ -55,7 +61,7 @@ $ docker images influxdb
 ```
 Instanciate an influxdb container
 ```
-$ docker run -d --name influxdb -p 8083:8083 -p 8086:8086 --network=test influxdb 
+$ docker run -d --name influxdb -p 8083:8083 -p 8086:8086 --network=test influxdb
 ```
 Verify
 ```
@@ -127,11 +133,11 @@ $ cat telegraf.conf
 ```
 instanciate a telegraf container
 ```
-$ docker run -d --name telegraf \
+docker run -d --name telegraf \
 -v $PWD/telegraf.conf:/etc/telegraf/telegraf.conf \
 --network=test \
  ksator/telegraf_with_snmp_mib 
-```
+ ```
 verify
 ```
 $ docker ps | grep telegraf_with_snmp_mib
