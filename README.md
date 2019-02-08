@@ -7,7 +7,6 @@ A docker file for telegraf that includes the following MIB:
 
 install docker
 
-
 ## How to test this repo
 
 Download the image
